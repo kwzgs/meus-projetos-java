@@ -6,11 +6,11 @@ public class Fatorial{
         // chama a classe Scanner pra dentro do programa
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Digite um número: 3");
+        System.out.print("Digite um número: ");
         numero = scanner.nextInt();
 
         // fazer o loop pra multiplicar os valores do fatorial
-        for (int i = numero; i == 1; i-- ){
+        for (int i = numero; i>1; i-- ){
             fat = fat * i; 
         }
 
