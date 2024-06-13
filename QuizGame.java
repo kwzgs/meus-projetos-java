@@ -32,7 +32,7 @@ public class QuizGame {
         nomeUsuario=scanner.nextLine();
 
         System.out.println("-------------------------------");
-        System.out.println("***** BEM VINDO AO QUIZ GAME - " + nomeUsuario + "*****");
+        System.out.println("***** BEM VINDO AO QUIZ GAME - " + nomeUsuario + " *****");
         System.out.println(">>>>> DICA: Utilize letra maiúscula em cada resposta das perguntas.");
         System.out.println("Deseja jogar?");
         System.out.println("1 - SIM");
@@ -44,9 +44,27 @@ public class QuizGame {
             System.out.println("-------------------------------");
             System.out.println(perguntas[posicao]);
             System.out.println("Sua resposta é: ");
-            respostas[posicao] = scanner.next().charAt(index:0);
+            respostas[posicao] = scanner.next().charAt(0);
             posicao++; //pulando para a próxima posição do vetor
             limiteRespostas++; //garantindo o limite de 10 respostas do usuário
+
+            if (limiteRespostas == 10) {
+                for (int indice = 0; indice < gabarito.length; indice++) {
+                    if (gabarito[indice] == respostas[indice]) { //comparando posição dos vetores
+                        pontuacao = pontuacao + 1;
+                    }
+                } //fim do loop que percorre os vetores
+
+                if (pontuacao == 10){
+                    System.out.println(">>>>> Parabéns! Você tirou a pontuação máxima. Acertou " + pontuacao + "/10 das questões.");
+                } else if (pontuacao < 10 && pontuacao > 7 ){
+                    System.out.println(">>>>> Quase que você tira a pontuação máxima. Acertou " + pontuacao + "/10 das questões.");
+                } else if (pontuacao < 8 && pontuacao > 4) {
+                    System.out.println(">>>>> Você ficou na média. Acertou " + pontuacao + "/10 das questões.");
+                }
+                
+                break;
+            }
 
         }
 
@@ -54,7 +72,6 @@ public class QuizGame {
             System.out.println("-------------------------------");
             System.out.println("Saindo do QUIZ GAME em 3...2...1... - Até a próxima!");
         }
-        
-
+        scanner.close();
     }
 }
