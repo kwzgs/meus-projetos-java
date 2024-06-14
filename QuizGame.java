@@ -61,8 +61,11 @@ public class QuizGame {
                     System.out.println(">>>>> Quase que você tira a pontuação máxima. Acertou " + pontuacao + "/10 das questões.");
                 } else if (pontuacao < 8 && pontuacao > 4) {
                     System.out.println(">>>>> Você ficou na média. Acertou " + pontuacao + "/10 das questões.");
+                } else if (pontuacao < 5 && pontuacao > 0){
+                    System.out.println(">>>>> Estude mais da próxima vez! Acertou " + pontuacao + "/10 das questões.");
+                } else if (pontuacao == 0){
+                    System.out.println(">>>>> Que pena! Você errou todas as questões. Acertou " + pontuacao + "/10 das questões.");
                 }
-                
                 break;
             }
 
