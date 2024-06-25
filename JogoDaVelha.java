@@ -58,21 +58,30 @@ public class JogoDaVelha {
             painel.add(botoes[i]);
         }               
 
-
-
         // criar um botão para limpar os X e O do jogo (Reset), onde faz-se um loop FOR para inserir um texto vazio dentro do botão (Arial, tamanho 20) e ao final exibe uma caixa de diálogo informando que o jogo foi resetado
-       
-
-
-
-
+        JButton btnResetar= new JButton();
+        btnResetar.setText("Limpar Jogo");
+        btnResetar.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnResetar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                for (int i=0; i<9; i++) {
+                    botoes[i].setText ("");
+                }
+                VezDoX[0] = true; //sempre começa o jogo com o X
+                
+                //exibe mensagem na tela usando um MessageDialog, informando que o jogo foi reiniciado com sucesso
+                JOptionPane.showMessageDialog(null, "O jogo foi reiniciado com sucesso!");
+            }
+        });
 
         // adiciona o texto com nomes dos jogados, o painel do jogo e o botão de reset dentro da janela
-        
+       janela.add(txtJogadores, BorderLayout.NORTH);
+       janela.add(painel, BorderLayout.CENTER);
+       janela.add(btnResetar, BorderLayout.SOUTH);
 
-
-
-        // torna a janela visível para o usuário
+       // torna a janela visível para o usuário
+       janela.setVisible(true);
+       
         
     }
 }
