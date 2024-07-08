@@ -5,7 +5,7 @@ public class VerificarIdade {
         Scanner scanner = new Scanner(System.in);
         int idade;
 
-        System.out.print("Digite a sua idade:");
+        System.out.print("Digite a sua idade: ");
         idade = scanner.nextInt();
 
         if(idade <=12){
